@@ -1,8 +1,12 @@
 package com.example.IO;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+import javax.swing.Box.Filler;
 
 public class FileExample {
 
@@ -10,7 +14,7 @@ public class FileExample {
 		
 		ArrayList<String> fileDummy = new ArrayList<String>();
 		
-		File files = new File("C:\\Users\\kursad.aydin\\Desktop\\JavaIO");
+		File files = new File("C:\\Users\\kursad.aydin\\Desktop");
 		/*files.createNewFile();
 		System.out.println(files.getParent());*/
 		
@@ -21,11 +25,28 @@ public class FileExample {
 			if (fileList[i].isDirectory()){
 				
 				fileDummy.add(fileList[i].getName());
+				
+												
 			}
 			
-			System.out.print(fileDummy);
+							
+			}
+		String filename;
+		
+		while (true) {
+			
+			
+			if(fileDummy.contains(filename=JOptionPane.showInputDialog(null,"Aranacak Dizin")))
+				
+			Desktop.getDesktop().open(new File(files +"\\" + filename));	
+			break;
+			
+			
 		}
+		}
+		
+		
 		
 	}
 
-}
+
